@@ -19,7 +19,7 @@ npm start | yarn start
 * [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) - The web library used
 * [Redux](https://react-redux.js.org/) - State Management
 * [Material UI](https://material-ui.com/) - Styling & Icon
-* [Firebase](https://firebase.google.com/?hl=id)
+* [Firebase](https://firebase.google.com/?hl=id) - Backend, Database, and Deploy
 
 #### Contributions
 Do you want this project to be better? You can contribute to this project, I am very open if there is a contribution to this project.

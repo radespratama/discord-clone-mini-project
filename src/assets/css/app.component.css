@@ -1,0 +1,115 @@
+:root {
+    --global-primary-color: #2F3136;
+    --global-text-color: #FFF;
+    --global-secondary-color: #36393F;
+}
+
+.sidebar__container {
+    display: flex;
+    flex-direction: column;
+    flex: 0.25;
+    height: 100vh;
+    background-color: var(--global-primary-color);
+}
+.sidebar__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--global-primary-color);
+    color: var(--global-text-color);
+    border-bottom: 3px solid #26282C;
+}
+.sidebar__channels {
+    flex: 1;
+}
+.sidebar__channelsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--global-primary-color);
+    color: gray;
+    margin: 0;
+}
+.sidebar__header {
+    display: flex;
+    align-items: center;
+}
+.sidebar__header > h4,
+.sidebar__header > .MuiSvgIcon-root {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: .3s;
+}
+.sidebar__header:hover,
+.sidebar__addChannel:hover {
+    color: var(--global-text-color);
+}
+.sidebar__addChannel {
+    cursor: pointer;
+}
+.sidebarChannel > h4 {
+    display: flex;
+    font-weight: 500;
+    font-size: 15px;
+    padding-left: 15px;
+    align-items: center;
+    background-color: var(--global-primary-color);
+    color: gray;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.sidebarChannel > h4 >.MuiSvgIcon-root {
+    padding: 8px;
+    font-size: 16px;
+    margin-left: 10px;
+    color: lightgray;
+}
+.sidebarChannel__hash {
+    padding: 8px;
+    font-size: 20px;
+}
+.sidebarChannel:hover > h4 {
+    transition: .2s ease-in-out;
+    color: var(--global-text-color);
+    background-color: var(--global-secondary-color);
+}
+.sidebar__voice,
+.sidebar__profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    background-color: var(--global-primary-color);
+    padding: 10px;
+    border-top: 1px solid gray;
+}
+.sidebar__voiceInfo, 
+.sidebar__profileInfo{
+    flex: 1;
+    padding: 10px;
+}
+.sidebar__voice > .MuiSvgIcon-root,
+.sidebar__voiceInfo > h3,
+.sidebar__voiceIcons {
+    color: #43B581;
+}
+.sidebar__voiceInfo > p {
+    font-size: smaller;
+}
+.sidebar__voiceIcons > .MuiSvgIcon-root,
+.sidebar__profileIcons > .MuiSvgIcon-root {
+    padding: 10px;
+}
+.sidebar__profileInfo > h3 {
+    color: var(--global-text-color);
+}
+.sidebar__profileIcons > .MuiSvgIcon-root:hover {
+    color: var(--global-text-color);
+    border-radius: 5px;
+    background-color: var(--global-secondary-color);
+}

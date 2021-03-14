@@ -40,59 +40,61 @@ export default function Sidebar() {
     ]
 
     return (
-        <div className="sidebar__container">
-            <div className="sidebar__top">
-                <h3>Tempat Nongkrong!</h3>
-                <ExpandMoreIcon />
-            </div>
+        <>
+            <div className="sidebar__container">
+                <div className="sidebar__top">
+                    <h3>Tempat Nongkrong!</h3>
+                    <ExpandMoreIcon />
+                </div>
 
-            <div className="sidebar__channels">
-                <div className="sidebar__channelsHeader">
-                    <div className="sidebar__header">
-                        <ExpandMoreIcon />
-                        <h4>Chat Room</h4>
+                <div className="sidebar__channels">
+                    <div className="sidebar__channelsHeader">
+                        <div className="sidebar__header">
+                            <ExpandMoreIcon />
+                            <h4>Chat Room</h4>
+                        </div>
+                        <AddIcon className="sidebar__addChannel" />
                     </div>
-                    <AddIcon className="sidebar__addChannel" />
+                    <div className="sidebar__channelList">
+                        <SidebarChannel />
+                        <SidebarChannel />
+                        <SidebarChannel />
+                        <SidebarChannel />
+                    </div>
                 </div>
-                <div className="sidebar__channelList">
-                    <SidebarChannel />
-                    <SidebarChannel />
-                    <SidebarChannel />
-                    <SidebarChannel />
-                </div>
-            </div>
 
-            <div className="sidebar__voice">
-                <SignalCellularAltIcon className="sidebar__voiceIcon" fontSize="large" />
-                <div className="sidebar__voiceInfo">
-                    <h3>Voice Connected</h3>
-                    <p>Streaming</p>
+                <div className="sidebar__voice">
+                    <SignalCellularAltIcon className="sidebar__voiceIcon" fontSize="large" />
+                    <div className="sidebar__voiceInfo">
+                        <h3>Voice Connected</h3>
+                        <p>Streaming</p>
+                    </div>
+                    <div className="sidebar__voiceIcons">
+                        <InfoOutlined />
+                        <CallIcon />
+                    </div>
                 </div>
-                <div className="sidebar__voiceIcons">
-                    <InfoOutlined />
-                    <CallIcon />
-                </div>
-            </div>
 
-            <div className="sidebar__profile">
-                <Avatar />
-                <div className="sidebar__profileInfo">
-                    <h3>Rades Pratama</h3>
-                    <span>#8342</span>
+                <div className="sidebar__profile">
+                    <Avatar src="https://avatars.githubusercontent.com/u/56097757?s=460&amp;u=59b1b510258f215fd2c3277767205be16b2c3158&amp;v=4" />
+                    <div className="sidebar__profileInfo">
+                        <h3>Rades Pratama</h3>
+                        <p>#8342</p>
+                    </div>
+                    <div className="sidebar__profileIcons">
+                        <MuiThemeProvider theme={ThemeColor}>
+                            {
+                                iconProfile.map((item, index) => {
+                                    return <Tooltip key={`${index}-${item.id}`} title={item.desc} placement="top">
+                                        {item.icon}
+                                    </Tooltip>
+                                })
+                            }
+                        </MuiThemeProvider>
+                    </div>
                 </div>
-                <div className="sidebar__profileIcons">
-                    <MuiThemeProvider theme={ThemeColor}>
-                        {
-                            iconProfile.map((item, index) => {
-                                return <Tooltip key={`${index}-${item.id}`} title={item.desc} placement="top">
-                                    {item.icon}
-                                </Tooltip>
-                            })
-                        }
-                    </MuiThemeProvider>
-                </div>
-            </div>
 
-        </div>
+            </div>
+        </>
     )
 }

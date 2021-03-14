@@ -1,9 +1,32 @@
 :root {
     --global-primary-color: #2F3136;
-    --global-text-color: #FFF;
     --global-secondary-color: #36393F;
+    --global-triple-color: #202225;
+    --global-text-color: #FFF;
+    --discord-blue: #738adb;
 }
-
+main {
+    display: flex;
+}
+.sidebar__server {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--global-triple-color);
+}
+.sidebar__server > .sidebar__list__icon {
+    padding: 12px;
+    margin: 10px;
+    display: flex; align-items: center;
+    border-radius: 999px;
+    transition: .3s ease-in-out;
+    background-color: var(--global-secondary-color);
+    cursor: pointer;
+}
+.sidebar__server > .sidebar__list__icon:hover {
+    fill: white;
+    background-color: var(--discord-blue);
+}
 .sidebar__container {
     display: flex;
     flex-direction: column;
@@ -19,6 +42,9 @@
     background-color: var(--global-primary-color);
     color: var(--global-text-color);
     border-bottom: 3px solid #26282C;
+}
+.sidebar__top > h3 {
+    font-size: 16px;
 }
 .sidebar__channels {
     flex: 1;
@@ -88,28 +114,39 @@
     padding: 10px;
     border-top: 1px solid gray;
 }
+.sidebar__profile {
+    padding: 0 10px;
+}
 .sidebar__voiceInfo, 
 .sidebar__profileInfo{
     flex: 1;
     padding: 10px;
 }
 .sidebar__voice > .MuiSvgIcon-root,
-.sidebar__voiceInfo > h3,
 .sidebar__voiceIcons {
     color: #43B581;
 }
-.sidebar__voiceInfo > p {
+.sidebar__voiceInfo > h3 {
+    font-size: 16px;
+    color: #43B581;
+}
+.sidebar__voiceInfo > p,
+.sidebar__profileInfo > p {
     font-size: smaller;
 }
 .sidebar__voiceIcons > .MuiSvgIcon-root,
 .sidebar__profileIcons > .MuiSvgIcon-root {
     padding: 10px;
+    font-size: 18px;
 }
 .sidebar__profileInfo > h3 {
     color: var(--global-text-color);
+    font-size: 14px;
 }
 .sidebar__profileIcons > .MuiSvgIcon-root:hover {
     color: var(--global-text-color);
     border-radius: 5px;
     background-color: var(--global-secondary-color);
 }
+
+/* Header */

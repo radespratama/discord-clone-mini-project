@@ -1,11 +1,15 @@
 import React from 'react'
 
 import Sidebar from 'components/Sidebar';
-// import Navbar from 'components/Navbar';
+import SidebarIcon from 'components/SidebarIcon';
+import Chat from 'components/Chat';
+
 export default function Homepage() {
     return (
         <main>
+            <SidebarIcon />
             <Sidebar />
+            <Chat />
         </main>
     )
 }

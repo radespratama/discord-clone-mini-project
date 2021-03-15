@@ -4,6 +4,7 @@
     --global-triple-color: #202225;
     --global-text-color: #FFF;
     --discord-blue: #738adb;
+    --font-family: "Poppins", sans-serif;
 }
 main {
     display: flex;
@@ -15,8 +16,8 @@ main {
     background-color: var(--global-triple-color);
 }
 .sidebar__server > .sidebar__list__icon {
-    padding: 12px;
-    margin: 10px;
+    padding: 10px;
+    margin: 7px;
     display: flex; align-items: center;
     border-radius: 999px;
     transition: .3s ease-in-out;
@@ -30,7 +31,7 @@ main {
 .sidebar__container {
     display: flex;
     flex-direction: column;
-    flex: 0.25;
+    flex: 0.3;
     height: 100vh;
     background-color: var(--global-primary-color);
 }
@@ -136,8 +137,9 @@ main {
 }
 .sidebar__voiceIcons > .MuiSvgIcon-root,
 .sidebar__profileIcons > .MuiSvgIcon-root {
-    padding: 10px;
-    font-size: 18px;
+    padding: 6px;
+    font-size: 19px;
+    cursor: pointer;
 }
 .sidebar__profileInfo > h3 {
     color: var(--global-text-color);
@@ -150,3 +152,106 @@ main {
 }
 
 /* Header */
+.chat__container {
+    display: flex;
+    flex-direction: column;
+    flex: 0.75;
+    background-color: var(--global-secondary-color);
+    height: 100vh;
+}
+.chatHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    padding: 7.75px;
+    border-bottom: 3px solid #26282C;
+    position: relative;
+}
+.chatHeader__hash {
+    color: gray;
+    font-size: 20px;
+    padding: 10px;
+}
+.chatHeader__left > h3 {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+}
+.chatHeader__right {
+    display: flex;
+    align-items: center;
+    flex: 0.47;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+.chatHeader__right > .MuiSvgIcon-root {
+    padding: 5px;
+    font-size: 23px;
+    cursor: pointer;
+    transition: .4s;
+}
+.chatHeader__right > .MuiSvgIcon-root:hover {
+    color: var(--global-text-color);
+    border-radius: 5px;
+    background-color: var(--global-secondary-color);
+}
+.chatHeader__search {
+    display: flex;
+    align-items: center;
+    color: gray;
+    background-color: var(--global-primary-color);
+    border-radius: 3px;
+    padding: 3px;
+}
+.chatHeader__search > input {
+    background: transparent;
+    outline-width: 0;
+    color: white;
+    border: none;
+}
+.chatHeader__search > input::placeholder {
+    font-family: var(--font-family);
+}
+.chat__input {
+    color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #40444b;
+}
+.chat__inputIcons > .MuiSvgIcon-root {
+    padding: 5px;
+    font-size: 28px;
+    cursor: pointer;
+}
+.chat__input > form > input {
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    outline-width: 0;
+    color: white;
+    font-size: medium;
+    width: 90%;
+}
+.chat__input > form > input[type="text"] {
+    font-family: var(--font-family);
+    font-size: 16px;
+}
+.chat__input > form {
+    flex: 1;
+    margin-left: 10px;
+}
+.chat__input > form > input::placeholder {
+    font-family: var(--font-family);
+}
+.chat__inputButton {
+    display: none;
+}
+.chat__messages {
+    flex: 1;
+}

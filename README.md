@@ -22,10 +22,12 @@ npm start | yarn start
 * [Firebase](https://firebase.google.com/?hl=id) - Backend, Database, and Deploy
 
 #### Contributions
-Do you want this project to be better? You can contribute to this project, I am very open if there is a contribution to this project.
+Do you want this project to be better? You can contribute to this project, I am very open if there is a contribution to this project. Thank You :)
 
 #### Note
 This app using UI discord old. You can remake to new UI discord app.
+
+If you like this repo, please click star okey ≧ω≦
 
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 ![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)

@@ -1,23 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import db, { auth } from '../firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'features/userSlice';
 
-import SidebarChannel from 'components/SidebarChannels';
-
-import SignalCellularAltIcon from '@material-ui/icons/SignalCellularAlt';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import InfoOutlined from '@material-ui/icons/InfoOutlined';
-import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
-import SettingsIcon from '@material-ui/icons/Settings';
-import CallIcon from '@material-ui/icons/Call';
 import MicIcon from '@material-ui/icons/Mic';
 import AddIcon from '@material-ui/icons/Add';
+import CallIcon from '@material-ui/icons/Call';
+import SettingsIcon from '@material-ui/icons/Settings';
+import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import InfoOutlined from '@material-ui/icons/InfoOutlined';
+import SignalCellularAltIcon from '@material-ui/icons/SignalCellularAlt';
 
 import { MuiThemeProvider } from '@material-ui/core/styles'
+import SidebarChannel from 'components/SidebarChannels';
 import { theme as ThemeColor } from 'assets/js/style';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Avatar } from '@material-ui/core';
 
-export default function Sidebar() {
 
+export default function Sidebar() {
+    const user = useSelector(selectUser)
+    const [channels, setChannels] = useState([])
+
+    useEffect(() => {
+        db.collection('channels').onSnapshot((snapshot) => (
+            setChannels(snapshot.docs.map(doc => ({
+                id: doc.id,
+                channel: doc.data()
+            })))
+        ))
+    }, [])
+
+    const handleAddChannels = () => {
+        const channelName = prompt('Enter a new channel name');
+        if(channelName){
+            db.collection('channels').add({
+                channelName: channelName,
+            });
+        }
+    }
     const iconProfile = [
         {
             id: "01-001",
@@ -38,7 +60,6 @@ export default function Sidebar() {
             icon: <SettingsIcon />
         }
     ]
-
     return (
         <>
             <div className="sidebar__container">
@@ -53,13 +74,12 @@ export default function Sidebar() {
                             <ExpandMoreIcon />
                             <h4>Chat Room</h4>
                         </div>
-                        <AddIcon className="sidebar__addChannel" />
+                        <AddIcon onClick={handleAddChannels} className="sidebar__addChannel" />
                     </div>
                     <div className="sidebar__channelList">
-                        <SidebarChannel />
-                        <SidebarChannel />
-                        <SidebarChannel />
-                        <SidebarChannel />
+                        {channels.map(({id, channel}) => (
+                            <SidebarChannel key={id} id={id} channelName={channel.channelName} />
+                        ))}
                     </div>
                 </div>
 
@@ -76,10 +96,10 @@ export default function Sidebar() {
                 </div>
 
                 <div className="sidebar__profile">
-                    <Avatar src="https://avatars.githubusercontent.com/u/56097757?s=460&amp;u=59b1b510258f215fd2c3277767205be16b2c3158&amp;v=4" />
+                    <Avatar onClick={() => auth.signOut()} src={user.photo} />
                     <div className="sidebar__profileInfo">
-                        <h3>Rades Pratama</h3>
-                        <p>#8342</p>
+                        <h3>{user.displayName}</h3>
+                        <p>#{user.uid.substring(0, 5)}</p>
                     </div>
                     <div className="sidebar__profileIcons">
                         <MuiThemeProvider theme={ThemeColor}>

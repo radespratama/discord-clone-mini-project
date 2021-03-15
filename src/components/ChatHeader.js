@@ -11,7 +11,7 @@ import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AllInboxIcon from '@material-ui/icons/AllInbox';
 import HelpIcon from '@material-ui/icons/Help';
 
-export default function ChatHeader() {
+export default function ChatHeader({ channelName }) {
     const listIcon = [
         {
             id: "123",
@@ -37,7 +37,7 @@ export default function ChatHeader() {
         },
         {
             id: "127",
-            name: "Help",
+            name: "If you want to Logout, You can click avatar icon in bottom left. **you can make new styling for logout.**",
             icon: <HelpIcon/>
         }
     ]
@@ -45,7 +45,8 @@ export default function ChatHeader() {
         <div className="chatHeader">
             <div className="chatHeader__left">
                 <h3>
-                    <span className="chatHeader__hash"># </span> Channel Name
+                    <span className="chatHeader__hash"># </span>
+                    {channelName}
                 </h3>
             </div>
             <div className="chatHeader__right">

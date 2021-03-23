@@ -44,7 +44,7 @@ export default function Chat() {
 
     useEffect(() => {
         if(channelId) {
-            db.collection('channels').doc(channelId).collection('messages').orderBy('timestamp', 'desc').onSnapshot(snapshot => (
+            db.collection('channels').doc(channelId).collection('messages').orderBy('timestamp', 'asc').onSnapshot(snapshot => (
                 setMessages(snapshot.docs.map((doc) => doc.data()))
             ));
         }
@@ -84,7 +84,7 @@ export default function Chat() {
                             value={input}
                             onChange={e => setInput(e.target.value)}
                             type="text"
-                            placeholder={`Message #${channelName}`}
+                            placeholder={`Message #${channelName ?? 'Welcome Back'}`}
                         />
                         <button onClick={sendMessage} disabled={!channelId} className="chat__inputButton" type="submit">Send Message</button>
                     </form>

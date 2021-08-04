@@ -1,4 +1,4 @@
-# Discord App Cloning in React JS
+# Discord App Cloning with React JS
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://github.com/radespratama/discord-clone-mini-project.git#readme)
 
 ## Getting Started
